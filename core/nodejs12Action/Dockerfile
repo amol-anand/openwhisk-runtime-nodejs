@@ -15,13 +15,11 @@
 # limitations under the License.
 #
 
-FROM node:12.18.2-stretch
+FROM mcr.microsoft.com/playwright:bionic
 
 # Initial update and some basics.
 #
 RUN apt-get update && apt-get install -y \
-    imagemagick \
-    graphicsmagick \
     unzip \
     && rm -rf /var/lib/apt/lists/*
 
