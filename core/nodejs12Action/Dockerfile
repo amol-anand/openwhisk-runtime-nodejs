@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install -y \
 
 # Default playwright image installs the browsers in the following path
 # and we want playwright to look there for the browsers when it needs them
-ENV PLAYWRIGHT_BROWSERS_PATH=/root/.cache/ms-playwright
+# ENV PLAYWRIGHT_BROWSERS_PATH=/root/.cache/ms-playwright
 
 # Add sources and copy the package.json to root container,
 # so npm packages from user functions take precendence.

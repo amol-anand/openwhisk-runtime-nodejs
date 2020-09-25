@@ -70,10 +70,10 @@ RUN apt-get update && apt-get install -y --no-install-recommends \
     ffmpeg
 
 # 7. Add user so we don't need --no-sandbox in Chromium
-RUN groupadd -r runtimeuser && useradd -r -g runtimeuser -G audio,video runtimeuser \
-    && mkdir -p /home/runtimeuser/Downloads \
-    && chown -R runtimeuser:runtimeuser /home/runtimeuser \
-    && chmod -R 777 /home/runtimeuser
+# RUN groupadd -r runtimeuser && useradd -r -g runtimeuser -G audio,video runtimeuser \
+#     && mkdir -p /home/runtimeuser/Downloads \
+#     && chown -R runtimeuser:runtimeuser /home/runtimeuser \
+#     && chmod -R 777 /home/runtimeuser
 
 # # 8. (Optional) Install XVFB if there's a need to run browsers in headful mode
 # RUN apt-get update && apt-get install -y --no-install-recommends \
@@ -95,8 +95,9 @@ RUN groupadd -r runtimeuser && useradd -r -g runtimeuser -G audio,video runtimeu
 #     cd ../ && rm -rf tmp && rm /home/runtimeuser/playwright.tar.gz
 
 # 2. Install playwright
-RUN mkdir /home/runtimeuser/tmp && cd /home/runtimeuser/tmp && npm init -y && \
-PLAYWRIGHT_BROWSERS_PATH=/home/runtimeuser/.cache/ms-playwright npm i -D playwright
+# 
+RUN mkdir /pw-tmp && cd /pw-tmp && npm init -y && \
+npm i -D playwright
 
 # Initial update and some basics.
 #
